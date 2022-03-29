@@ -11,7 +11,7 @@ function App() {
     .then(response_from_api => {
       console.log(response_from_api)
       // apiData = response_from_api.data[0].title
-      setapiData(response_from_api.data[0].title)
+      setapiData(response_from_api.data[2].title)
       
       
       
