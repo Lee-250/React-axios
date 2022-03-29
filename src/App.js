@@ -5,14 +5,13 @@ import React, { useState, useEffect } from 'react';
 
 function App() {
   const [apiData, setapiData] = useState("")
-  // let apiData = ''
+  
   useEffect(() => {
     axios.get("https://sleepy-sands-79356.herokuapp.com/api/notes")
     .then(response_from_api => {
       console.log(response_from_api)
       // apiData = response_from_api.data[0].title
       setapiData(response_from_api.data[2].title)
-      
       
       
       
