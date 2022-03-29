@@ -22,6 +22,22 @@ function App() {
     })
   }, []);  
 
+  
+    const [name, setName] = useState("Joe");
+
+    const handleSubmit = (event) => {
+      event.preventDefault();
+     axios.post('https://sleepy-sands-79356.herokuapp.com/api/notes', {
+      title: name,
+      content: "it worked"
+     })
+     .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+    }
 
   return (
     <div className="App">
@@ -39,7 +55,17 @@ function App() {
           Learn React
         </a>
       <button className="button-colour">Test</button>
+
+      <form onSubmit={handleSubmit}>
+      <label>
+        Name:
+        <input type="text" name="name" value={name} onChange={(e) => setName(e.target.value)} />
+      </label>
+      <input type="submit" value="Submit" />
+      </form>
+      
       <p> Data appears here: {apiData} </p>
+      <p> name appears here: {name} </p>
       </header>
     </div>
   );
