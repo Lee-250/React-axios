@@ -1,13 +1,19 @@
-import logo from './logo.svg';
+import Header from './Components/Header'
+import logo from './sfclogo.png';
 import './App.css';
 import axios from "axios";
 import React, { useState, useEffect } from 'react';
+import govukReact from 'govuk-react';
+import {Label} from 'govuk-react';
+import {Input} from 'govuk-react';
+
 
 function App() {
   const [apiData, setapiData] = useState("")
+  const apiUrl = "https://skillsforcare-api.herokuapp.com"   
   
   useEffect(() => {
-    axios.get("https://sleepy-sands-79356.herokuapp.com/api/notes")
+    axios.get(`${apiUrl}/api/notes`)
     .then(response_from_api => {
       console.log(response_from_api)
       // apiData = response_from_api.data[0].title
@@ -26,7 +32,7 @@ function App() {
 
     const handleSubmit = (event) => {
       event.preventDefault();
-     axios.post('https://sleepy-sands-79356.herokuapp.com/api/notes', {
+     axios.post(`${apiUrl}/api/notes`, {
       title: name,
       content: "it worked"
      })
@@ -40,25 +46,23 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
+      <Header/>
+      <header>
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+       
+        <div class="govuk-form-group">
+          <Label class="govuk-label" for="full-name">
+            Full name:
+          </Label>
+          <Input class="govuk-input" id="full-name" name="full-name" type="text" spellcheck="false" autocomplete="name" value={name} onChange={(e) => setName(e.target.value)} />
+        </div>
+        
       <button className="button-colour">Test</button>
 
       <form onSubmit={handleSubmit}>
       <label>
         Name:
-        <input type="text" name="name" value={name} onChange={(e) => setName(e.target.value)} />
+        <Input type="text" name="name" value={name} onChange={(e) => setName(e.target.value)} />
       </label>
       <input type="submit" value="Submit" />
       </form>
