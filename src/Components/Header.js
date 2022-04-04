@@ -3,11 +3,16 @@ import React from 'react';
 function Header(props) {
     return (
         <div className="header-container">
-            <ul className="header-items">
-                <li>Coffee</li>
-                <li>Tea</li>
-                <li>Milk</li>
-            </ul>
+            <div className="header-content-left"></div>
+            <div className="header-content-right">
+                <ul className="header-items">
+                    <li>Bookshop</li>
+                    <li>Think Care Careers</li>
+                    <li>Sign in</li>
+                </ul>
+                
+            </div>
+          
         </div>
     );
 }
