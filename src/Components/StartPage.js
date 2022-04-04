@@ -2,7 +2,7 @@ import React from 'react';
 import Header from './Header';
 import Menu from './Menu';
 import { Breadcrumbs, Heading, GridCol, GridRow, LeadParagraph, InsetText, Button, ButtonArrow } from 'govuk-react';
-
+import {Link} from "react-router-dom";
 
 const StartPage = () => {
     return (
@@ -36,13 +36,16 @@ const StartPage = () => {
               <InsetText>
                 You will need your payment details if applying for paid service.
               </InsetText>
-              
-              <Button
-                icon={<ButtonArrow />}
-                start
-              >
-                Start now
-              </Button>
+
+              <Link to="/name"> 
+                <Button
+                  icon={<ButtonArrow />}
+                  start
+                  
+                >
+                  Start now
+                </Button>
+              </Link> 
 
               </div>
             </GridCol>
