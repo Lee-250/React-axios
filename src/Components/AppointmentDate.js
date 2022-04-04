@@ -2,33 +2,34 @@ import { Heading, Select, GridCol, Button, ButtonArrow} from 'govuk-react';
 import {Link} from "react-router-dom";
 
 
-
-const AppointmentType = ({type, setType}) => {
+const AppointmentDate = ({date, setDate, type}) => {
     return (
         <div>
             <GridCol setWidth="two-thirds">
-            <Heading size="XLARGE">Please choose the type of appointment you require:</Heading>
+            <br />
+            <Heading size="LARGE">Please choose from an available {type} appointment:</Heading>
+            <p>You have chosen: {type}</p>
             <Select
                 input={{
-                    name: 'group1',
+                    name: 'group2',
                     onChange: (e) => {
                         console.log(e, "<---- event")
-                        setType(e.target.value) 
+                        setDate(e.target.value) 
                       }
                 }}
-                label="Appointment Type"
+                label="Appointment Date and Time"
                 >
-                <option value="Consultation">
-                    Consultation
+                <option value="Monday 20th 2:00 pm">
+                  Monday 20th 2:00 pm
                 </option>
-                <option value="Training">
-                    Training
+                <option value="Tuesday 21st 3:00 pm">
+                  Tuesday 21st 3:00 pm
                 </option>
-                <option value="Apprenticeships">
-                    Apprenticeships
+                <option value="Wednesday 22nd 4:00 pm">
+                  Wednesday 22nd 4:00 pm
                 </option>
             </Select>
-            <Link to="/date"> 
+            <Link to="/name"> 
                 <Button
                   icon={<ButtonArrow />}
                   start
@@ -37,7 +38,7 @@ const AppointmentType = ({type, setType}) => {
                 </Button>
               </Link> 
               <p>
-                  type state here: {type}
+                   stuff is working: {date}
               </p>
            
             </GridCol>
@@ -45,4 +46,4 @@ const AppointmentType = ({type, setType}) => {
     );
 };
 
-export default AppointmentType;
+export default AppointmentDate;

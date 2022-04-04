@@ -50,9 +50,6 @@ const StartPage = () => {
               </div>
             </GridCol>
             <GridCol setWidth="one-third">
-              <div>
-                content
-              </div>
             </GridCol>
           </GridRow>
 
