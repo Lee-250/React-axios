@@ -29,7 +29,7 @@ const AppointmentDate = ({date, setDate, type}) => {
                   Wednesday 22nd 4:00 pm
                 </option>
             </Select>
-            <Link to="/name"> 
+            <Link to="/checkdetails"> 
                 <Button
                   icon={<ButtonArrow />}
                   start
