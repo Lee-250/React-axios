@@ -31,7 +31,7 @@ const StartPage = () => {
             <GridCol setWidth="two-thirds">
               <div>
               <LeadParagraph>
-                Use this service to book a consultation with one of our Skills For Care counsellor.
+                Use this service to book a consultation with one of our Skills for Care counsellor.
               </LeadParagraph>
               <InsetText>
                 You will need your payment details if applying for paid service.
