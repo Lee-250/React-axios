@@ -1,5 +1,6 @@
 import { Heading, InputField, GridCol, ButtonArrow, Button} from 'govuk-react';
 import {Link} from "react-router-dom";
+import FunctionalRendering from './FunctionalRendering';
 
 
 const Name = ({name, setName}) => {
@@ -18,8 +19,7 @@ const Name = ({name, setName}) => {
                     >
                     Name
             </InputField>
-            <p></p>
-            Name state here: {name}
+            <FunctionalRendering></FunctionalRendering>
             <Link to="/category"> 
                 <Button
                   icon={<ButtonArrow />}
