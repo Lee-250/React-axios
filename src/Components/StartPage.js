@@ -37,7 +37,7 @@ const StartPage = () => {
                 You will need your payment details if applying for paid service.
               </InsetText>
 
-              <Link to="/name"> 
+              <Link to="/bookingform"> 
                 <Button
                   icon={<ButtonArrow />}
                   start

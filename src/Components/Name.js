@@ -20,7 +20,7 @@ const Name = ({name, setName}) => {
             </InputField>
             <p></p>
             Name state here: {name}
-            <Link to="/category"> 
+            <Link to="../type"> 
                 <Button
                   icon={<ButtonArrow />}
                   start

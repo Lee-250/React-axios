@@ -28,7 +28,7 @@ const AppointmentType = ({type, setType}) => {
                     Apprenticeships
                 </option>
             </Select>
-            <Link to="/date"> 
+            <Link to="../date"> 
                 <Button
                   icon={<ButtonArrow />}
                   start

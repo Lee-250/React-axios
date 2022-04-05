@@ -1,6 +1,7 @@
 import React from 'react';
 import { Table } from 'govuk-react';
 import { Heading } from 'govuk-react';
+import { Link } from 'react-router-dom';
 
 const CheckDetails = ({name, date, type}) => {
     return (
@@ -15,9 +16,11 @@ const CheckDetails = ({name, date, type}) => {
             <Table.Cell>
             {name}
             </Table.Cell>
-            <Table.Cell>
-            Change
-            </Table.Cell>
+           <Link to="/name">
+                <Table.Cell>
+                    Change
+                </Table.Cell>
+            </Link>
         </Table.Row>
 
         <Table.Row>
@@ -30,9 +33,11 @@ const CheckDetails = ({name, date, type}) => {
             <Table.Cell>
             {type}
             </Table.Cell>
-            <Table.Cell>
-            Change
-            </Table.Cell>
+            <Link to="/type">
+                <Table.Cell>
+                    Change
+                </Table.Cell>
+            </Link>
         </Table.Row>
 
         <Table.Row>
@@ -42,9 +47,11 @@ const CheckDetails = ({name, date, type}) => {
             <Table.Cell>
             {date}
             </Table.Cell>
-            <Table.Cell>
-            Change
-            </Table.Cell>
+            <Link to="/date">
+                <Table.Cell>
+                    Change
+                </Table.Cell>
+            </Link>
         </Table.Row>
         </Table>
         
