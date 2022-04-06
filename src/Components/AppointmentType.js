@@ -1,5 +1,6 @@
 import { Heading, Select, GridCol, Button, ButtonArrow} from 'govuk-react';
 import {Link} from "react-router-dom";
+import InputAppointmentType from './InputAppointmentType';
 
 
 
@@ -8,26 +9,7 @@ const AppointmentType = ({type, setType}) => {
         <div>
             <GridCol setWidth="two-thirds">
             <Heading size="XLARGE">Please choose the type of appointment you require:</Heading>
-            <Select
-                input={{
-                    name: 'group1',
-                    onChange: (e) => {
-                        console.log(e, "<---- event")
-                        setType(e.target.value) 
-                      }
-                }}
-                label="Appointment Type"
-                >
-                <option value="Consultation">
-                    Consultation
-                </option>
-                <option value="Training">
-                    Training
-                </option>
-                <option value="Apprenticeships">
-                    Apprenticeships
-                </option>
-            </Select>
+           <InputAppointmentType type={type} setType={setType} />
             <Link to="../date"> 
                 <Button
                   icon={<ButtonArrow />}

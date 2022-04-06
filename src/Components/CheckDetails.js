@@ -1,9 +1,29 @@
-import React from 'react';
+import {useState} from 'react';
 import { Table } from 'govuk-react';
 import { Heading } from 'govuk-react';
 import { Link } from 'react-router-dom';
+import Expandable from './Expandable';
+import InputName from './InputName';
+import InputAppointmentType from './InputAppointmentType';
+import InputAppointmentDate from './InputAppointmentDate';
 
-const CheckDetails = ({name, date, type}) => {
+
+const CheckDetails = ({name, setName, date, setDate, type, setType}) => {
+    const [isNameOpen, setIsNameOpen] = useState(false);
+    const [isTypeOpen, setIsTypeOpen] = useState(false);
+    const [isDateOpen, setIsDateOpen] = useState(false);
+
+    const toggleIsOpen = (nameOfState) => {
+        if (nameOfState === 'name') {
+            setIsNameOpen(curr => !curr)
+        } else if (nameOfState === 'type') {
+            setIsTypeOpen(curr => !curr)
+        } else if (nameOfState === 'date') {
+            setIsDateOpen(curr => !curr)
+        }
+    }
+
+
     return (
         <div>
             <Heading size="LARGE">Check your details are correct</Heading>
@@ -16,12 +36,16 @@ const CheckDetails = ({name, date, type}) => {
             <Table.Cell>
             {name}
             </Table.Cell>
-           <Link to="/name">
+            <Link onClick={() => toggleIsOpen('name')} to="#">
                 <Table.Cell>
                     Change
                 </Table.Cell>
             </Link>
+           {/* <Expandable>
+               <InputName name={name} setName = {setName}  />
+           </Expandable> */}
         </Table.Row>
+        {isNameOpen ? <Table.Row><InputName name={name} setName = {setName} /></Table.Row> : null}
 
         <Table.Row>
             <Table.Cell>
@@ -33,12 +57,14 @@ const CheckDetails = ({name, date, type}) => {
             <Table.Cell>
             {type}
             </Table.Cell>
-            <Link to="/type">
+            <Link onClick={() => toggleIsOpen('type')} to="#">
                 <Table.Cell>
                     Change
                 </Table.Cell>
             </Link>
         </Table.Row>
+        {isTypeOpen ? <Table.Row><InputAppointmentType type={type} setType={setType}/></Table.Row> : null}
+
 
         <Table.Row>
             <Table.Cell>
@@ -47,12 +73,13 @@ const CheckDetails = ({name, date, type}) => {
             <Table.Cell>
             {date}
             </Table.Cell>
-            <Link to="/date">
+            <Link onClick={() => toggleIsOpen('date')} to="#">
                 <Table.Cell>
                     Change
                 </Table.Cell>
             </Link>
         </Table.Row>
+        {isDateOpen ? <Table.Row><InputAppointmentDate date={date} setDate={setDate} /></Table.Row> : null}
         </Table>
         
 
