@@ -1,4 +1,5 @@
 import Header from './Components/Header'
+import Confirmation from './Components/Confirmation';
 import CheckDetails from './Components/CheckDetails';
 import Menu from './Components/Menu'
 import Name from './Components/Name'
@@ -15,6 +16,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
+
 
 
 
@@ -75,6 +77,7 @@ function App() {
             <Route path="/date" element={<AppointmentDate date={date} setDate={setDate} type={type}/>} /> */}
             <Route path="/checkdetails" element={<CheckDetails name={name} date={date} type={type}/>} />
             <Route path="/bookingform/*" element={<BookingForm/>} />
+            
             </Routes>
         </div>
       </div>

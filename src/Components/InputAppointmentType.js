@@ -10,10 +10,14 @@ const InputAppointmentType = ({type, setType}) => {
                     onChange: (e) => {
                         console.log(e, "<---- event")
                         setType(e.target.value) 
-                      }
+                      },
+                      required: true, value: type
                 }}
                 label="Appointment Type"
                 >
+                <option value="" disabled>
+                    Please choose from below
+                </option>
                 <option value="Consultation">
                     Consultation
                 </option>

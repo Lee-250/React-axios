@@ -10,7 +10,8 @@ const InputName = ({name, setName}) => {
                         value: name,
                         onChange: (e) => {
                           setName(e.target.value) 
-                        }
+                        },
+                        required: true, value: name
                     }}
                     >
                     Name

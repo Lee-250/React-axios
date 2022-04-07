@@ -10,10 +10,14 @@ const InputAppointmentDate = ({date, setDate}) => {
                     onChange: (e) => {
                         setDate(e.target.value) 
                         console.log("called on change")
-                      }
+                      },
+                      required: true, value: date
                 }}
                 label="Appointment Date and Time"
                 >
+                <option value="" disabled>
+                  Please choose from below
+                </option>
                 <option value="Monday 20th 2:00 pm">
                   Monday 20th 2:00 pm
                 </option>

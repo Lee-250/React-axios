@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import { Table } from 'govuk-react';
-import { Heading } from 'govuk-react';
+import { Heading, Button, ButtonArrow } from 'govuk-react';
 import { Link } from 'react-router-dom';
 import Expandable from './Expandable';
 import InputName from './InputName';
@@ -81,7 +81,15 @@ const CheckDetails = ({name, setName, date, setDate, type, setType}) => {
         </Table.Row>
         {isDateOpen ? <Table.Row><InputAppointmentDate date={date} setDate={setDate} /></Table.Row> : null}
         </Table>
-        
+        <Link to="../confirm"> 
+            <Button
+                  icon={<ButtonArrow />}
+                  start
+                  
+                >
+                  Submit
+            </Button>
+        </Link> 
 
 
         </div>
