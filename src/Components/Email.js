@@ -1,26 +1,25 @@
 import { Heading, InputField, GridCol, ButtonArrow, Button} from 'govuk-react';
 import {Link, useNavigate} from "react-router-dom";
-import InputName from "./InputName"
+import InputEmail from "./InputEmail"
+import validator from 'validator';
 
-
-const Name = ({name, setName}) => {
+const Email = ({email, setEmail}) => {
 
   const navigate = useNavigate()
 
-
   const nextPage = () => {
-    if (name === '') {
+    if (!validator.isEmail(email)) {
       return 
     } else {
-      navigate("../email");
+      navigate("../type");
     }
   }
 
     return (
         <div> <GridCol setWidth="two-thirds">
-            <Heading size="XLARGE">What is your name?</Heading>
-            <InputName name={name} setName={setName} />
-            Name state here: {name}
+            <Heading size="XLARGE">Please enter your email address</Heading>
+            <InputEmail email={email} setEmail={setEmail} />
+            Email state here: {email}
                 <Button
                   icon={<ButtonArrow />}
                   start
@@ -32,4 +31,4 @@ const Name = ({name, setName}) => {
     );
 };
 
-export default Name;
+export default Email;

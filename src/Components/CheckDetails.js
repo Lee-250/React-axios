@@ -4,14 +4,17 @@ import { Heading, Button, ButtonArrow } from 'govuk-react';
 import { Link } from 'react-router-dom';
 import Expandable from './Expandable';
 import InputName from './InputName';
+import InputEmail from './InputEmail';
 import InputAppointmentType from './InputAppointmentType';
 import InputAppointmentDate from './InputAppointmentDate';
 
 
-const CheckDetails = ({name, setName, date, setDate, type, setType}) => {
+
+const CheckDetails = ({name, setName, date, setDate, type, setType, email, setEmail}) => {
     const [isNameOpen, setIsNameOpen] = useState(false);
     const [isTypeOpen, setIsTypeOpen] = useState(false);
     const [isDateOpen, setIsDateOpen] = useState(false);
+    const [isEmailOpen, setIsEmailOpen] = useState(false);
 
     const toggleIsOpen = (nameOfState) => {
         if (nameOfState === 'name') {
@@ -20,6 +23,8 @@ const CheckDetails = ({name, setName, date, setDate, type, setType}) => {
             setIsTypeOpen(curr => !curr)
         } else if (nameOfState === 'date') {
             setIsDateOpen(curr => !curr)
+        } else if (nameOfState === 'email') {
+            setIsEmailOpen(curr => !curr)
         }
     }
 
@@ -41,11 +46,23 @@ const CheckDetails = ({name, setName, date, setDate, type, setType}) => {
                     Change
                 </Table.Cell>
             </Link>
-           {/* <Expandable>
-               <InputName name={name} setName = {setName}  />
-           </Expandable> */}
         </Table.Row>
         {isNameOpen ? <Table.Row><InputName name={name} setName = {setName} /></Table.Row> : null}
+
+        <Table.Row>
+            <Table.Cell>
+            <span style={{fontWeight: "bold"}}>Email:</span>
+            </Table.Cell>
+            <Table.Cell>
+            {email}
+            </Table.Cell>
+            <Link onClick={() => toggleIsOpen('email')} to="#">
+                <Table.Cell>
+                    Change
+                </Table.Cell>
+            </Link>
+        </Table.Row>
+        {isEmailOpen ? <Table.Row><InputEmail email={email} setEmail={setEmail} /></Table.Row> : null}
 
         <Table.Row>
             <Table.Cell>
