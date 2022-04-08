@@ -7,6 +7,10 @@ import InputName from './InputName';
 import InputEmail from './InputEmail';
 import InputAppointmentType from './InputAppointmentType';
 import InputAppointmentDate from './InputAppointmentDate';
+import emailjs from "emailjs-com"
+import { type } from '@testing-library/user-event/dist/type';
+
+
 
 
 
@@ -27,6 +31,18 @@ const CheckDetails = ({name, setName, date, setDate, type, setType, email, setEm
             setIsEmailOpen(curr => !curr)
         }
     }
+
+
+    const sendEmail = (e) => {
+        e.preventDefault();
+
+        emailjs.send('service_y3f9uc8', 'template_tetqjwc', {name: name, type: type, date: date, email: email}, 'JgecEVmPlFa_In6lj')
+        .then((result) => {
+          console.log(result.text);
+        }, (error) => {
+          console.log(error.text);
+        });
+    };
 
 
     return (
@@ -107,6 +123,8 @@ const CheckDetails = ({name, setName, date, setDate, type, setType, email, setEm
                   Submit
             </Button>
         </Link> 
+
+        <Button onClick={sendEmail}>sendEmail</Button>
 
 
         </div>
