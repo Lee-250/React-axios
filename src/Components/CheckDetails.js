@@ -1,14 +1,16 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import { Table } from 'govuk-react';
 import { Heading, Button, ButtonArrow } from 'govuk-react';
-import { Link } from 'react-router-dom';
+import {Link, useNavigate} from "react-router-dom";
 import Expandable from './Expandable';
 import InputName from './InputName';
 import InputEmail from './InputEmail';
 import InputAppointmentType from './InputAppointmentType';
 import InputAppointmentDate from './InputAppointmentDate';
+import Error from './Error';
 import emailjs from "emailjs-com"
 import { type } from '@testing-library/user-event/dist/type';
+import axios from 'axios';
 
 
 
@@ -19,6 +21,7 @@ const CheckDetails = ({name, setName, date, setDate, type, setType, email, setEm
     const [isTypeOpen, setIsTypeOpen] = useState(false);
     const [isDateOpen, setIsDateOpen] = useState(false);
     const [isEmailOpen, setIsEmailOpen] = useState(false);
+    const [isError, setIsError] = useState(false);
 
     const toggleIsOpen = (nameOfState) => {
         if (nameOfState === 'name') {
@@ -44,7 +47,39 @@ const CheckDetails = ({name, setName, date, setDate, type, setType, email, setEm
         });
     };
 
+    const apiUrl = "https://skillsforcare-api.herokuapp.com"   
+  
+    useEffect(() => {
+      axios.get(`${apiUrl}/api/appointment`)
+      .then(response_from_api => {
+        console.log(response_from_api)
+        // apiData = response_from_api.data[0].title
+      })
+      .catch(err => {
+        console.log(err)
+      })
+    }, []);  
+  
+    
+     
+  
+      const handleSubmit = (event) => {
+        event.preventDefault();
+       axios.post(`${apiUrl}/api/appointment`, {
+        name: name, type: type, date: date, email: email
+       })
+       .then(function (response) {
+        console.log(response);
+        navigate('../confirm')
+      })
+      .catch(function (error) {
+        console.log(error);
+        setIsError(true)
+        
+      });
+      }
 
+      const navigate = useNavigate()
     return (
         <div>
             <Heading size="LARGE">Check your details are correct</Heading>
@@ -114,6 +149,7 @@ const CheckDetails = ({name, setName, date, setDate, type, setType, email, setEm
         </Table.Row>
         {isDateOpen ? <Table.Row><InputAppointmentDate date={date} setDate={setDate} /></Table.Row> : null}
         </Table>
+       {isError ? <Error/> : null }
         <Link to="../confirm"> 
             <Button
                   icon={<ButtonArrow />}
@@ -125,6 +161,7 @@ const CheckDetails = ({name, setName, date, setDate, type, setType, email, setEm
         </Link> 
 
         <Button onClick={sendEmail}>sendEmail</Button>
+        <Button onClick={handleSubmit}> send Data</Button>
 
 
         </div>
