@@ -1,26 +1,64 @@
-.header-container {
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  height: 100vh;
+}
+#root {
+  height: 100vh;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Hind+Guntur&display=swap');
+
+
+.header {
   display: flex;
   flex-direction: row;
+  flex: 0 0 100%;
   align-items: center;
+  justify-content: center;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+
   width: 100%;
-  height: 70px;
+  height: 63px;
+
   background-color: #0065BD;
-  font-family: 'font-regular', Fallback, sans-serif;
-}
-.header-content-right {
-  flex: 30%;
-  align-items: center;
-  margin-right: 200px;
-
-
 }
 
-.header-content-left {
-  flex: 70%;
-  align-items: center;
-  margin-right: 200px;
-  
+.header, .menu {
+  font-family: 'Hind Guntur', 'font-regular', Fallback, sans-serif;
+  font-size: 18px;
+  letter-spacing: 0.2px;
+  line-height: 1.2;
+  color: #212529;
+}
 
+.header-container {
+  display: flex;
+  width: 85%;
+  justify-content: flex-end;
+}
+
+@media (min-width: 1200px) {
+  .header-container {
+      max-width: 1140px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+      max-width: 960px;
+  }
+}
+@media (min-width: 768px) {
+  .container {
+      max-width: 720px;
+  }
+}
+@media (min-width: 576px) {
+  .container {
+      max-width: 540px;
+  }
 }
 
 .header-items {
@@ -30,8 +68,12 @@
   justify-content: space-between;
   list-style: none;
   color: white;
-
 }
+
+.header-items li {
+  margin-right: 30px;
+}
+
 
 
 
@@ -51,37 +93,59 @@
 .content-container {
   display: flex;
   flex-direction: row;
-  height: 100vh;
+  height: 100%;
   width: 100%
 }
 
 .content-column-1 {
-  flex: 20%;
-  border-right: 0.5px solid black;
-  padding: 20px;
+  width: 20%;
+  height: 100%;
+  border-right: 0.5px solid #DDDDDD;
 }
 
 .content-column-2 {
-  flex: 80%;
+  width: 80%;
   
 }
 
 .menu {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .menu-list {
-  margin-top: 50px;
   padding: 0;
   list-style: none;
-  font-size: 20px;
-  align-items: flex-start;
+  display: block;
+  width: 100%;
 }
 .menu-item {
-  margin-bottom: 25px;
+  padding: 16px 24px 11px 24px;
+  min-width: 80%;
+  text-align: center;
+}
+.menu-item::after {
+  content: '';
+  display: inline-block;
+  position: relative;
+  border-style: solid;
+  border-width: 2px 2px 0 0;
+  transform: rotate(45deg);
+  border-color:#0065BD;
+  width: 12px;
+  height: 12px;
+  left: 25%;
+
 }
 
+.logo-wrapper {
+  margin: 42px 30px 36px 30px;
+}
+
+.sfc-logo {
+  height: 90px;
+}
 
 /* @media (prefers-reduced-motion: no-preference) {
   .App-logo {
