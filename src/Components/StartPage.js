@@ -7,15 +7,7 @@ import {Link} from "react-router-dom";
 const StartPage = () => {
     return (
         <div className='start-page'>
-          <Breadcrumbs>
-            <Breadcrumbs.Link href="#">
-              Section
-            </Breadcrumbs.Link>
-            <Breadcrumbs.Link href="#">
-              Sub-section
-            </Breadcrumbs.Link>
-            Current page
-          </Breadcrumbs>
+          
 
 
           <GridRow>

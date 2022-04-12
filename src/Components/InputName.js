@@ -1,4 +1,3 @@
-import React from 'react';
 import { InputField } from 'govuk-react';
 
 const InputName = ({name, setName}) => {

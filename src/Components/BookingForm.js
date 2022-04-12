@@ -32,7 +32,7 @@ const BookingForm = () => {
             <Route path="/type" element={<AppointmentType type={type} setType={setType}/>} />
             <Route path="/date" element={<AppointmentDate date={date} setDate={setDate} type={type}/>} />
             <Route path="/checkdetails" element={<CheckDetails name={name} setName={setName} date={date} setDate={setDate} type={type} setType={setType} email={email} setEmail={setEmail}/>} />
-            <Route path="/confirm" element={<Confirmation/>} />
+            <Route path="/confirm" element={<Confirmation name={name} email={email} date={date} type={type}/>} />
             </Routes>
     
   );

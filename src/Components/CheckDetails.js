@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react';
-import { Table } from 'govuk-react';
+import { BackLink, Table } from 'govuk-react';
 import { Heading, Button, ButtonArrow } from 'govuk-react';
 import {Link, useNavigate} from "react-router-dom";
 import Expandable from './Expandable';
@@ -22,6 +22,10 @@ const CheckDetails = ({name, setName, date, setDate, type, setType, email, setEm
     const [isDateOpen, setIsDateOpen] = useState(false);
     const [isEmailOpen, setIsEmailOpen] = useState(false);
     const [isError, setIsError] = useState(false);
+
+    const previousPage = () => {
+        navigate("../date");
+      }
 
     const toggleIsOpen = (nameOfState) => {
         if (nameOfState === 'name') {
@@ -162,6 +166,13 @@ const CheckDetails = ({name, setName, date, setDate, type, setType, email, setEm
 
         <Button onClick={sendEmail}>sendEmail</Button>
         <Button onClick={handleSubmit}> send Data</Button>
+        <br></br>
+        <BackLink
+                  href="#"
+                  onClick={previousPage}
+                >
+                  Back
+                </BackLink>
 
 
         </div>
