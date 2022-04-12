@@ -22,10 +22,11 @@ const Name = ({name, setName}) => {
   }
 
     return (
-        <div> <GridCol setWidth="two-thirds">
+        <div> 
+          <GridCol setWidth="two-thirds">
             <Heading size="XLARGE">What is your name?</Heading>
-            <InputName name={name} setName={setName} />
             {blankField ? <BlankFieldError/> : null }
+            <InputName name={name} setName={setName} />
             Name state here: {name}
                 <Button
                   icon={<ButtonArrow />}

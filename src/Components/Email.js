@@ -14,11 +14,11 @@ const Email = ({email, setEmail}) => {
   const navigate = useNavigate()
 
   const nextPage = () => {
-    if (!validator.isEmail(email)) {
+    if (email === ''){
+        setblankField(true)
+        return
+    } else if (!validator.isEmail(email)){
       setbadEmail(true)
-      return 
-    } else if (email === ''){
-      setblankField(true)
       return
     }
     else {
@@ -27,12 +27,13 @@ const Email = ({email, setEmail}) => {
   }
 
     return (
-        <div> <GridCol setWidth="two-thirds">
+        <div>
+            <GridCol setWidth="two-thirds">
             <Heading size="XLARGE">Please enter your email address</Heading>
+            {blankField ? <BlankFieldError/> : null }
+            {badEmail ? <EmailError/> : null } 
             <InputEmail email={email} setEmail={setEmail} />
             Email state here: {email}
-            {blankField ? <BlankFieldError/> : null }
-            {badEmail ? <EmailError/> : null }
                 <Button
                   icon={<ButtonArrow />}
                   start
