@@ -3,7 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@devexpress/dx-react-scheduler": "^3.0.2",
+    "@devexpress/dx-react-scheduler-material-ui": "^3.0.2",
     "@govuk-react/table": "^0.10.0",
+    "@mui/material": "^5.6.1",
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
