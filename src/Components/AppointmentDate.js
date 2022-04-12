@@ -1,4 +1,4 @@
-import { Heading, Select, GridCol, Button, ButtonArrow} from 'govuk-react';
+import { Heading, Select, GridCol, Button, ButtonArrow, BackLink, Breadcrumbs} from 'govuk-react';
 import {Link, useNavigate} from "react-router-dom";
 import InputAppointmentDate from './InputAppointmentDate';
 import NoChoiceError from './NoChoiceError';
@@ -18,9 +18,30 @@ const AppointmentDate = ({date, setDate, type}) => {
       navigate("../checkdetails"); // navigate to the page
     }
   }
+
+  const previousPage = () => {
+    navigate("../email");
+  }
     return (
         <div>
             <GridCol setWidth="two-thirds">
+            <Breadcrumbs>
+            <Breadcrumbs.Link href="../">
+              Home
+            </Breadcrumbs.Link>
+            <Breadcrumbs.Link href="./name">
+            Add your name
+          </Breadcrumbs.Link>
+          <Breadcrumbs.Link href="./email">
+            Add your email
+          </Breadcrumbs.Link>
+          <Breadcrumbs.Link href="./type">
+            Choose your appointment type
+          </Breadcrumbs.Link>
+          <Breadcrumbs>
+            Choose your appointment date and time
+          </Breadcrumbs>
+        </Breadcrumbs>
             <br />
             <Heading size="LARGE">Please choose from an available {type} appointment:</Heading>
             {noChoice ? <NoChoiceError/> : null }
@@ -34,6 +55,13 @@ const AppointmentDate = ({date, setDate, type}) => {
                 >
                   Next
                 </Button>
+
+                <BackLink
+                  href="#"
+                  onClick={previousPage}
+                >
+                  Back
+                </BackLink>
               
               <p>
                    stuff is working: {date}
