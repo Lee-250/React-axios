@@ -2,18 +2,15 @@ import React from 'react';
 
 function Header(props) {
     return (
-        <div className="header-container">
-            <div className="header-content-left"></div>
-            <div className="header-content-right">
+        <header className="header">
+            <div className="header-container">
                 <ul className="header-items">
                     <li>Bookshop</li>
                     <li>Think Care Careers</li>
                     <li>Sign in</li>
                 </ul>
-                
             </div>
-          
-        </div>
+        </header>
     );
 }
 

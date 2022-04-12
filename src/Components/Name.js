@@ -1,15 +1,20 @@
 import { Heading, InputField, GridCol, ButtonArrow, Button, BackLink, Breadcrumbs} from 'govuk-react';
 import {Link, useNavigate} from "react-router-dom";
 import InputName from "./InputName"
+import {useState, useEffect} from 'react';
+import BlankFieldError from './BlankFieldError';
 
 
 const Name = ({name, setName}) => {
 
   const navigate = useNavigate()
+  const [blankField, setblankField] = useState(false);
+
 
 
   const nextPage = () => {
     if (name === '') {
+      setblankField(true)
       return 
     } else {
       navigate("../email");
@@ -22,7 +27,8 @@ const Name = ({name, setName}) => {
   
 
     return (
-        <div> <GridCol setWidth="two-thirds">
+        <div>
+          <GridCol setWidth="two-thirds">
         <Breadcrumbs>
             <Breadcrumbs.Link href="../">
               Home
@@ -32,6 +38,7 @@ const Name = ({name, setName}) => {
           </Breadcrumbs>
         </Breadcrumbs>
             <Heading size="XLARGE">What is your name?</Heading>
+            {blankField ? <BlankFieldError/> : null }
             <InputName name={name} setName={setName} />
             Name state here: {name}
                 <Button
