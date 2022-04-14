@@ -2,15 +2,14 @@ import {useState, useEffect} from 'react';
 import { BackLink, Table } from 'govuk-react';
 import { Heading, Button, ButtonArrow } from 'govuk-react';
 import {Link, useNavigate} from "react-router-dom";
-import Expandable from './Expandable';
 import InputName from './InputName';
 import InputEmail from './InputEmail';
 import InputAppointmentType from './InputAppointmentType';
 import InputAppointmentDate from './InputAppointmentDate';
 import Error from './Error';
 import emailjs from "emailjs-com"
-import { type } from '@testing-library/user-event/dist/type';
 import axios from 'axios';
+import { display_date_to_user } from '../utils/datetime';
 
 
 
@@ -143,7 +142,7 @@ const CheckDetails = ({name, setName, date, setDate, type, setType, email, setEm
             <b>Date & Time</b>
             </Table.Cell>
             <Table.Cell>
-            {date}
+            {display_date_to_user(date)}
             </Table.Cell>
             <Link onClick={() => toggleIsOpen('date')} to="#">
                 <Table.Cell>

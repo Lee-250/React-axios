@@ -1,8 +1,8 @@
-import { Heading, Select, GridCol, Button, ButtonArrow, BackLink, Breadcrumbs} from 'govuk-react';
-import {Link, useNavigate} from "react-router-dom";
+import { Heading, GridCol, Button, ButtonArrow, BackLink, Breadcrumbs} from 'govuk-react';
+import {useNavigate} from "react-router-dom";
 import InputAppointmentDate from './InputAppointmentDate';
 import NoChoiceError from './NoChoiceError';
-import {useState, useEffect} from 'react';
+import {useState} from 'react';
 
 
 const AppointmentDate = ({date, setDate, type}) => {
@@ -62,11 +62,6 @@ const AppointmentDate = ({date, setDate, type}) => {
                 >
                   Back
                 </BackLink>
-              
-              <p>
-                   stuff is working: {date}
-              </p>
-           
             </GridCol>
         </div>
     );
