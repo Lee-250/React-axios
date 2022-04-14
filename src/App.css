@@ -147,6 +147,14 @@ body {
   height: 90px;
 }
 
+.expirydate-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100px;
+
+}
+
 /* @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 0.1s linear;

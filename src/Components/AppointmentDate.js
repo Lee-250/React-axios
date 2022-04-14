@@ -13,6 +13,9 @@ const AppointmentDate = ({date, setDate, type}) => {
   const nextPage = () => {
     if (date === '') {
       setnoChoice(true)
+    }else if (type === 'Training' && date!='') {
+        setnoChoice(false)
+        navigate("../payment");
       return // do nothing
     } else {
       navigate("../checkdetails"); // navigate to the page
