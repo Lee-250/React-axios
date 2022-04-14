@@ -11,63 +11,66 @@ import {
   Toolbar,
   ViewSwitcher,
 } from "@devexpress/dx-react-scheduler-material-ui";
-import { useState } from "react";
+import {useState, useEffect} from 'react';
 import moment from "moment";
+import axios from 'axios';
 
-const appointment_data_from_backend = [
-    {
-      id: 1,
-      name: "Alpaca",
-      email: "llama@kyle.com",
-      type: "Consultation",
-      date: "2022-04-11T12:00",
-      created_at: "2022-04-11T10:43:28.488538Z",
-    },
-    {
-      id: 2,
-      name: "2nd Alpaca",
-      email: "llama@kyle.com",
-      type: "Consultation",
-      date: "2022-04-11T14:00",
-      created_at: "2022-04-11T10:51:40.466445Z",
-    },
-    {
-      id: 3,
-      name: "Lee",
-      email: "e.e@e.com",
-      type: "Consultation",
-      date: "2022-04-12T10:00",
-      created_at: "2022-04-11T10:51:57.462887Z",
-    },
-    {
-      id: 4,
-      name: "Test",
-      email: "tedbooton@gmail.com",
-      type: "Apprenticeships",
-      date: "2022-04-14T12:00",
-      created_at: "2022-04-11T11:20:48.462865Z",
-    },
-    {
-      id: 5,
-      name: "Lee",
-      email: "e.e@e.com",
-      type: "Consultation",
-      date: "2022-04-14T15:30",
-      created_at: "2022-04-11T11:20:58.463284Z",
-    },
-    {
-      id: 6,
-      name: "Kyle",
-      email: "kyle@llama.com",
-      type: "Training",
-      date: "2022-04-13T11:00",
-      created_at: "2022-04-13T11:19:11.034973Z",
-    },
-];
+const apiUrl = "https://skillsforcare-api.herokuapp.com"   
+
+// const appointment_data_from_backend = [
+//     {
+//       id: 1,
+//       name: "Alpaca",
+//       email: "llama@kyle.com",
+//       type: "Consultation",
+//       date: "2022-04-11T12:00",
+//       created_at: "2022-04-11T10:43:28.488538Z",
+//     },
+//     {
+//       id: 2,
+//       name: "2nd Alpaca",
+//       email: "llama@kyle.com",
+//       type: "Consultation",
+//       date: "2022-04-11T14:00",
+//       created_at: "2022-04-11T10:51:40.466445Z",
+//     },
+//     {
+//       id: 3,
+//       name: "Lee",
+//       email: "e.e@e.com",
+//       type: "Consultation",
+//       date: "2022-04-12T10:00",
+//       created_at: "2022-04-11T10:51:57.462887Z",
+//     },
+//     {
+//       id: 4,
+//       name: "Test",
+//       email: "tedbooton@gmail.com",
+//       type: "Apprenticeships",
+//       date: "2022-04-14T12:00",
+//       created_at: "2022-04-11T11:20:48.462865Z",
+//     },
+//     {
+//       id: 5,
+//       name: "Lee",
+//       email: "e.e@e.com",
+//       type: "Consultation",
+//       date: "2022-04-14T15:30",
+//       created_at: "2022-04-11T11:20:58.463284Z",
+//     },
+//     {
+//       id: 6,
+//       name: "Kyle",
+//       email: "kyle@llama.com",
+//       type: "Training",
+//       date: "2022-04-13T11:00",
+//       created_at: "2022-04-13T11:19:11.034973Z",
+//     },
+// ];
 
 const mapAppointmentData = (appointment) => ({
   id: appointment.id,
-  startDate: appointment.date,
+  startDate: moment(appointment.date),
   endDate: moment(appointment.date).add(1, "hour"),
   title: `${appointment.type} booked by ${appointment.name}`,
   type: appointment.type,
@@ -131,17 +134,29 @@ const CustomAppointment = ({ children, style, ...restProps }) => {
 
 const Calendar = () => {
   
-  const [data, useData] = useState(appointment_data_from_backend.map(data => mapAppointmentData(data)));
+  const [data, setData] = useState([]);
   // const [data, useData] = useState(appointment_data_from_backend.map(mapAppointmentData));
+  useEffect(() => {
+    axios.get(`${apiUrl}/api/appointment`)
+    .then(response_from_api => {
+      console.log('response here ---->', response_from_api)
 
+  const data_for_calendar = response_from_api.data.map(data => mapAppointmentData(data))
+       setData(data_for_calendar)
+    })
+    .catch(err => {
+      console.log(err)
+    })
+  }, []);  
+  
   // console.log(appointment_data_from_backend.map(data => mapAppointmentData(data)), "<---")
-
+  
   return (
     <Paper>
       <Scheduler data={data} height={660}>
         <ViewState
-          defaultCurrentDate="2022-04-12"
-          defaultCurrentViewName="Week"
+          defaultCurrentDate={Date.now()}
+          defaultCurrentViewName="Month"
         />
 
         <DayView startDayHour={9} endDayHour={18} />
