@@ -2,6 +2,7 @@ import CheckDetails from './CheckDetails';
 import Confirmation from './Confirmation';
 import Name from './Name'
 import Email from './Email'
+import Payment from './Payment';
 import AppointmentType from './AppointmentType';
 import AppointmentDate from './AppointmentDate';
 import React, { useState, useEffect } from 'react';
@@ -19,6 +20,7 @@ const BookingForm = () => {
   const [type, setType] = useState("");
   const [date, setDate] = useState("");
   const [email, setEmail] = useState("");
+  const [payment, setPayment] = useState("");
 
   
   return (
@@ -33,6 +35,7 @@ const BookingForm = () => {
             <Route path="/date" element={<AppointmentDate date={date} setDate={setDate} type={type}/>} />
             <Route path="/checkdetails" element={<CheckDetails name={name} setName={setName} date={date} setDate={setDate} type={type} setType={setType} email={email} setEmail={setEmail}/>} />
             <Route path="/confirm" element={<Confirmation name={name} email={email} date={date} type={type}/>} />
+            <Route path="/payment" element={<Payment name={name} email={email} date={date} type={type} payment={payment} setPayment={setPayment}/>} />
             </Routes>
     
   );

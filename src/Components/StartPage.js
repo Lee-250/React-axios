@@ -1,7 +1,7 @@
 import React from 'react';
-import Header from './Header';
-import Menu from './Menu';
-import { Breadcrumbs, Heading, GridCol, GridRow, LeadParagraph, InsetText, Button, ButtonArrow } from 'govuk-react';
+
+
+import { Heading, GridCol, GridRow, LeadParagraph, InsetText, Button, ButtonArrow } from 'govuk-react';
 import {Link} from "react-router-dom";
 
 const StartPage = () => {

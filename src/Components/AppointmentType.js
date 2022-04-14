@@ -16,8 +16,9 @@ import NoChoiceError from './NoChoiceError';
     if (type === '') {
       setnoChoice(true)
       return // do nothing
-    } else {
-      navigate("../date"); // navigate to the page
+    
+    }else {
+    navigate("../date"); // navigate to the page
     }
   }
 
