@@ -10,6 +10,7 @@ import Header from './Components/Header'
 import Menu from './Components/Menu'
 import BookingForm from './Components/BookingForm';
 import StartPage from './Components/StartPage';
+import Calendar from "./Components/Calendar";
 import AppointmentViewer from "./Components/AppointmentViewer";
 
 function App() {
@@ -26,8 +27,8 @@ function App() {
             <Routes>
             <Route path="/" element={<StartPage />} />
             <Route path="/bookingform/*" element={<BookingForm/>} />
+            <Route path="/calendar" element={<Calendar />} />
             <Route path="/viewer" element={<AppointmentViewer/>} />
-            
             </Routes>
         </div>
       </div>
