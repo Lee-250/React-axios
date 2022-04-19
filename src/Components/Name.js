@@ -40,7 +40,7 @@ const Name = ({name, setName}) => {
             <Heading size="XLARGE">What is your name?</Heading>
             {blankField ? <BlankFieldError/> : null }
             <InputName name={name} setName={setName} />
-            Name state here: {name}
+
                 <Button
                   icon={<ButtonArrow />}
                   start
