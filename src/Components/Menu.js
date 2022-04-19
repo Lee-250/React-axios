@@ -11,10 +11,10 @@ const Menu = () => {
                 </div>
             </Link>
             <ul className='menu-list'>
-                <li className='menu-item'>Service 1</li>
-                <li className='menu-item'>Service 2</li>
-                <li className='menu-item'>Service 3</li>
-                <li className='menu-item'>Service 4</li>
+                <li className='menu-item'>Home</li>
+                <li className='menu-item'>News and events</li>
+                <li className='menu-item'><Link to="/">Book an appointment</Link></li>
+                <li className='menu-item'><Link to="/calendar">View appointments</Link></li>
             </ul>
 
             
