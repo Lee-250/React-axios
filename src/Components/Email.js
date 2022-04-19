@@ -49,7 +49,7 @@ const Email = ({email, setEmail}) => {
             {blankField ? <BlankFieldError/> : null }
             {badEmail ? <EmailError/> : null } 
             <InputEmail email={email} setEmail={setEmail} />
-            Email state here: {email}
+            
                 <Button
                   icon={<ButtonArrow />}
                   start

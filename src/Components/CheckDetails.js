@@ -39,8 +39,8 @@ const CheckDetails = ({name, setName, date, setDate, type, setType, email, setEm
     }
 
 
-    const sendEmail = (e) => {
-        e.preventDefault();
+    const sendEmail = () => {
+        //e.preventDefault();
 
         emailjs.send('service_y3f9uc8', 'template_tetqjwc', {name: name, type: type, date: date, email: email}, 'JgecEVmPlFa_In6lj')
         .then((result) => {
@@ -72,6 +72,7 @@ const CheckDetails = ({name, setName, date, setDate, type, setType, email, setEm
         name: name, type: type, date: date, email: email
        })
        .then(function (response) {
+        sendEmail();
         console.log(response);
         navigate('../confirm')
       })
@@ -82,6 +83,7 @@ const CheckDetails = ({name, setName, date, setDate, type, setType, email, setEm
       });
       }
 
+      
       const navigate = useNavigate()
     return (
         <div>
@@ -153,17 +155,10 @@ const CheckDetails = ({name, setName, date, setDate, type, setType, email, setEm
         {isDateOpen ? <Table.Row><td colspan={2}><InputAppointmentDate date={date} setDate={setDate} /></td></Table.Row> : null}
         </Table>
        {isError ? <Error/> : null }
-        <Link className='button' to="../confirm"> 
             <Button
                   icon={<ButtonArrow />}
                   start
-                >
-                  Submit
-            </Button>
-        </Link> 
-        <br />
-        <Button onClick={sendEmail}>sendEmail</Button>
-        <Button onClick={handleSubmit}> send Data</Button>
+                   onClick={handleSubmit}> Submit</Button>
         <br></br>
         <BackLink
                   href="#"

@@ -1,6 +1,5 @@
 import {  Heading, Panel, Main, Table, Link } from 'govuk-react';
-import Email from './Email';
-import Name from './Name';
+import { display_date_to_user } from '../utils/datetime';
 
 
 
@@ -63,7 +62,7 @@ const Confirmation = ({name, date, type, email}) => {
                         <span style={{fontWeight: "bold"}}>Appointment date and time:</span>
                     </Table.Cell> 
                     <Table.Cell>
-                            {date}
+                        {display_date_to_user(date)}
                     </Table.Cell> 
                 </Table.Row>
             </Table>
