@@ -15,6 +15,7 @@ import {
 import { useState, useEffect } from "react";
 import moment from "moment";
 import axios from "axios";
+import "../calendar.css"
 
 const apiUrl = "https://skillsforcare-api.herokuapp.com";
 
@@ -28,29 +29,15 @@ const mapAppointmentData = (appointment) => ({
   email: appointment.email,
 });
 
-const get_custom_style = (appointment_type) => {
-  switch (appointment_type) {
-    case "Consultation":
-      return { backgroundColor: "#EFA107", borderRadius: "8px" };
-    case "Training":
-      return { backgroundColor: "#07EFA1", borderRadius: "8px" };
-    case "Apprenticeship":
-      return { backgroundColor: "#EF07A1", borderRadius: "8px" };
-    default:
-      return { borderRadius: "8px" };
-  }
-};
 
 const CustomAppointment = ({ children, style, ...restProps }) => {
-  const custom_styles = get_custom_style(restProps?.data?.["type"]);
+  const appointment_type = restProps?.data?.["type"];
+  const appointment_style_class_name = ["Appointment", appointment_type].join('-')
 
   return (
     <Appointments.Appointment
       {...restProps}
-      style={{
-        ...style,
-        ...custom_styles,
-      }}
+      className={appointment_style_class_name}
     >
       {children}
     </Appointments.Appointment>
@@ -74,7 +61,7 @@ const Calendar = () => {
   }, []);
 
   return (
-    <Paper>
+    <Paper id="Appointments-view">
       <Scheduler data={data} height={660}>
         <ViewState
           defaultCurrentDate={Date.now()}
