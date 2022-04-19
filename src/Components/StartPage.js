@@ -53,7 +53,7 @@ const StartPage = () => {
               </Paragraph>
               
 
-              <Link to="/bookingform"> 
+              <Link className="button" to="/bookingform"> 
                 <Button
                   icon={<ButtonArrow />}
                   start

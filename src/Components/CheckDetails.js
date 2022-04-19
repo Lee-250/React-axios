@@ -101,7 +101,7 @@ const CheckDetails = ({name, setName, date, setDate, type, setType, email, setEm
                 </Table.Cell>
             </Link>
         </Table.Row>
-        {isNameOpen ? <Table.Row><InputName name={name} setName = {setName} /></Table.Row> : null}
+        {isNameOpen ? <Table.Row><td colspan={2}><InputName name={name} setName={setName} /></td></Table.Row> : null}
 
         <Table.Row>
             <Table.Cell>
@@ -116,7 +116,7 @@ const CheckDetails = ({name, setName, date, setDate, type, setType, email, setEm
                 </Table.Cell>
             </Link>
         </Table.Row>
-        {isEmailOpen ? <Table.Row><InputEmail email={email} setEmail={setEmail} /></Table.Row> : null}
+        {isEmailOpen ? <Table.Row><td colspan={2}><InputEmail email={email} setEmail={setEmail} /></td></Table.Row> : null}
 
         <Table.Row>
             <Table.Cell>
@@ -134,7 +134,7 @@ const CheckDetails = ({name, setName, date, setDate, type, setType, email, setEm
                 </Table.Cell>
             </Link>
         </Table.Row>
-        {isTypeOpen ? <Table.Row><InputAppointmentType type={type} setType={setType}/></Table.Row> : null}
+        {isTypeOpen ? <Table.Row><td colspan={2}><InputAppointmentType type={type} setType={setType}/></td></Table.Row> : null}
 
 
         <Table.Row>
@@ -150,19 +150,18 @@ const CheckDetails = ({name, setName, date, setDate, type, setType, email, setEm
                 </Table.Cell>
             </Link>
         </Table.Row>
-        {isDateOpen ? <Table.Row><InputAppointmentDate date={date} setDate={setDate} /></Table.Row> : null}
+        {isDateOpen ? <Table.Row><td colspan={2}><InputAppointmentDate date={date} setDate={setDate} /></td></Table.Row> : null}
         </Table>
        {isError ? <Error/> : null }
-        <Link to="../confirm"> 
+        <Link className='button' to="../confirm"> 
             <Button
                   icon={<ButtonArrow />}
                   start
-                  
                 >
                   Submit
             </Button>
         </Link> 
-
+        <br />
         <Button onClick={sendEmail}>sendEmail</Button>
         <Button onClick={handleSubmit}> send Data</Button>
         <br></br>

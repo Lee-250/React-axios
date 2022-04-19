@@ -8,6 +8,10 @@ body {
 
 @import url('https://fonts.googleapis.com/css2?family=Hind+Guntur&display=swap');
 
+a.button {
+  text-decoration: none;
+  display: inline-block;
+}
 
 .header {
   display: flex;
