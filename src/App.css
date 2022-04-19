@@ -5,7 +5,9 @@ body {
 #root {
   height: 100vh;
   width: 100vw;
-  overflow-x: hidden;
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: 63px 1fr;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Hind+Guntur&display=swap');
@@ -50,6 +52,17 @@ a.button {
     margin-right: 0px;
   }
 }
+
+
+/* @media screen and (min-height: 700px) {
+  .header {
+    position: fixed;
+  }
+  .content-container {
+    position: relative;
+    top: 63px;
+  }
+} */
 
 .header {
   display: flex;
@@ -135,8 +148,9 @@ a.button {
 .content-container {
   display: flex;
   flex-direction: row;
-  height: 100%;
-  width: 100%
+  height: auto;
+  width: 100%;
+  overflow-y: scroll;
 }
 
 .content-column-1 {
@@ -147,7 +161,7 @@ a.button {
 
 .content-column-2 {
   width: 80%;
-
+  overflow-x: scroll;
 }
 
 @media screen and (max-width: 1000px) {
