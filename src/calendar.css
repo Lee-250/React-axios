@@ -1,0 +1,31 @@
+#Appointments-view .Appointment-Consultation {
+  background-color: #e8a51f;
+}
+#Appointments-view .Appointment-Consultation:hover {
+  background-color: #dc9507;
+}
+
+#Appointments-view .Appointment-Training {
+  background-color: #16da85;
+}
+#Appointments-view .Appointment-Training:hover {
+  background-color: #00d277;
+}
+
+
+#Appointments-view .Appointment-Apprenticeships {
+  background-color: #64B5F6;
+}
+#Appointments-view .Appointment-Apprenticeships:hover {
+  background-color: #42a5f5;
+}
+
+/* 
+case "Consultation":
+return { backgroundColor: "#EFA107", borderRadius: "8px" };
+case "Training":
+return { backgroundColor: "#07DF81", borderRadius: "8px" };
+case "Apprenticeship":
+return { backgroundColor: "#64B5F6", borderRadius: "8px", 
+'&:hover': {backgroundColor: "#42a5f5"}
+}; */
