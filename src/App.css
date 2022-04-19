@@ -4,10 +4,16 @@ body {
 }
 #root {
   height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Hind+Guntur&display=swap');
 
+a.button {
+  text-decoration: none;
+  display: inline-block;
+}
 @media screen and (max-height: 700px) {
   .header {
   display: flex;
@@ -44,7 +50,6 @@ body {
     margin-right: 0px;
   }
 }
-
 
 .header {
   display: flex;
@@ -142,7 +147,7 @@ body {
 
 .content-column-2 {
   width: 80%;
-  
+
 }
 
 @media screen and (max-width: 1000px) {

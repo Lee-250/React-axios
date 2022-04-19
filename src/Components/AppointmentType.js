@@ -1,4 +1,4 @@
-import { Heading, Select, GridCol, Button, ButtonArrow, BackLink, Breadcrumbs} from 'govuk-react';
+import { Heading, Select, GridCol, Button, ButtonArrow, BackLink, Breadcrumbs, InsetText} from 'govuk-react';
 import {Link, useNavigate} from "react-router-dom";
 import InputAppointmentType from './InputAppointmentType';
 import {useState, useEffect} from 'react';
@@ -46,6 +46,11 @@ import NoChoiceError from './NoChoiceError';
             <Heading size="XLARGE">Please choose the type of appointment you require:</Heading>
             {noChoice ? <NoChoiceError/> : null }
             <InputAppointmentType type={type} setType={setType} />
+            {
+              (type === "Training") 
+              ? <InsetText>Note: "Training" is a paid option. You will be required to fill in your credit cards detail before we confirm your booking.</InsetText>
+              : null
+            }
             
                 <Button
                   icon={<ButtonArrow />}

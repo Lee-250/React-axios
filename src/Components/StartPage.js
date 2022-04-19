@@ -1,29 +1,23 @@
 import React from 'react';
 
 
-import { Heading, GridCol, GridRow, LeadParagraph, InsetText, Button, ButtonArrow, OrderedList, ListItem, Paragraph } from 'govuk-react';
+import { Heading, GridCol, GridRow, LeadParagraph, InsetText, Button, ButtonArrow, OrderedList, ListItem, Paragraph, Main } from 'govuk-react';
 import {Link} from "react-router-dom";
 
 const StartPage = () => {
     return (
-        <div className='start-page'>
-          
-
-
+        <Main className='start-page'>
           <GridRow>
-            <GridCol setWidth="two-thirds">
-              <Heading size="XLARGE">
+            <GridCol setWidth="80%">
+
+            <Heading size="XLARGE">
                 Book an appointment with Skills For Care
               </Heading>
-            </GridCol>
-          </GridRow>
-          
-
-          <GridRow>
-            <GridCol setWidth="two-thirds">
               <div>
               <LeadParagraph>
                 Use this service to book a consultation with a Skills for Care counsellor.
+                </LeadParagraph>
+              <LeadParagraph>
                 To apply you must:
               </LeadParagraph>
 
@@ -53,7 +47,7 @@ const StartPage = () => {
               </Paragraph>
               
 
-              <Link to="/bookingform"> 
+              <Link className="button" to="/bookingform"> 
                 <Button
                   icon={<ButtonArrow />}
                   start
@@ -65,13 +59,13 @@ const StartPage = () => {
 
               </div>
             </GridCol>
-            <GridCol setWidth="one-third">
+            <GridCol>
             </GridCol>
           </GridRow>
 
 
 
-        </div>
+        </Main>
     );
 };
 
