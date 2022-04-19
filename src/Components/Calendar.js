@@ -62,7 +62,7 @@ const Calendar = () => {
 
   return (
     <Paper id="Appointments-view">
-      <Scheduler data={data} height={660}>
+      <Scheduler data={data}>
         <ViewState
           defaultCurrentDate={Date.now()}
           defaultCurrentViewName="Month"
