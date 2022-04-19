@@ -3,12 +3,10 @@ import { Select } from "govuk-react";
 const InputAppointmentType = ({type, setType}) => {
     return (
         <div>
-
             <Select
                 input={{
                     name: 'group1',
                     onChange: (e) => {
-                        console.log(e, "<---- event")
                         setType(e.target.value) 
                       },
                       required: true, value: type
