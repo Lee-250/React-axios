@@ -43,7 +43,7 @@ const StartPage = () => {
                How long it takes
               </Heading>
               <Paragraph>
-                It will take approximately 5 minutes to book your appointment with this service. Once complete, you will receive email confirmation with further details for your appointment
+                It will take approximately 5 minutes to book your appointment with this service. Once complete, you will receive email confirmation with further details for your appointment.
               </Paragraph>
               <Heading size="LARGE">
                Before you start
