@@ -67,9 +67,7 @@ import NoChoiceError from './NoChoiceError';
                   Back
                 </BackLink>
              
-              <p>
-                  type state here: {type}
-              </p>
+              
            
             </GridCol>
         </div>

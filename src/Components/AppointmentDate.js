@@ -48,7 +48,7 @@ const AppointmentDate = ({date, setDate, type}) => {
             <br />
             <Heading size="LARGE">Please choose from an available {type} appointment:</Heading>
             {noChoice ? <NoChoiceError/> : null }
-            <p>You have chosen: {type}</p>
+            
             <InputAppointmentDate date={date} setDate={setDate}/>
            
                 <Button
