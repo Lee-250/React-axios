@@ -23,10 +23,10 @@ const StartPage = () => {
 
               <OrderedList listStyleType="bullet">
                 <ListItem>
-                  be an employer of Health Care workers
+                  be an employer of Health Care workers.
                 </ListItem>
                 <ListItem>
-                  be able to access the required funding for paid services
+                  be able to access the required funding for paid services.
                 </ListItem>
               </OrderedList>
 
