@@ -196,28 +196,43 @@ a.button {
   padding: 16px 24px 11px 24px;
   min-width: 80%;
   text-align: left;
+  color:#212529
 }
 
 .menu-item::after {
   content: '';
   display: inline-block;
+  position: relative;
+  top: -2px;
+
   border-style: solid;
   border-width: 2px 2px 0 0;
   transform: rotate(45deg);
   border-color:#0065BD;
   width: 12px;
   height: 12px;
-  left: 25%;
 }
 
 .menu-item a {
   text-decoration: none;
-  color: inherit;
+  color:#212529;
 }
 
 .menu-item:hover, .menu-item:active {
   background-color: #D1D2D6;
   color: #000000;
+}
+
+.menu-item.active {
+  background-color: #626A6E;
+}
+.menu-item.active a {
+  color: #fff;
+}
+
+
+.menu-item.active::after {
+  border-color: #fff;
 }
 
 .logo-wrapper {
