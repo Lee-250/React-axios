@@ -162,6 +162,7 @@ a.button {
   height: 100%;
   border-right: 0.5px solid #DDDDDD;
   display: none;
+  flex-shrink: 0;
 }
 
 .content-column-2 {
