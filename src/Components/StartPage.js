@@ -1,12 +1,11 @@
 import React from 'react';
 
-
-import { Heading, GridCol, GridRow, LeadParagraph, InsetText, Button, ButtonArrow, OrderedList, ListItem, Paragraph, Main } from 'govuk-react';
-import {Link} from "react-router-dom";
+import { Heading, GridCol, GridRow, LeadParagraph, InsetText, Button, ButtonArrow, OrderedList, ListItem, Paragraph} from 'govuk-react';
+import { Link } from "react-router-dom";
 
 const StartPage = () => {
     return (
-        <Main className='start-page'>
+        <div className='start-page'>
           <GridRow>
             <GridCol setWidth="80%">
 
@@ -62,10 +61,7 @@ const StartPage = () => {
             <GridCol>
             </GridCol>
           </GridRow>
-
-
-
-        </Main>
+        </div>
     );
 };
 
