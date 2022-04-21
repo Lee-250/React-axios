@@ -135,9 +135,13 @@ a.button {
 .start-page {
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
-  /* justify-content: center; */
-  /* text-align: center; */
+  padding: 24px 15px;
+}
+
+@media (min-width: 768px) {
+  .start-page {
+    padding-left: 63px;
+  }
 }
 
 .App-logo {
@@ -157,24 +161,17 @@ a.button {
   width: 20%;
   height: 100%;
   border-right: 0.5px solid #DDDDDD;
+  display: none;
 }
 
 .content-column-2 {
-  width: 80%;
+  width: 100%;
   overflow-x: scroll;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (min-width: 992px) {
   .content-column-1 {
-    display: none;
-    width: 20%;
-    height: 100%;
-    border-right: 0.5px solid #DDDDDD;
-  }
-  
-  .content-column-2 {
-    width: 1020%;
-    
+    display: unset;
   }
 }
 
@@ -210,13 +207,6 @@ a.button {
   width: 12px;
   height: 12px;
   left: 25%;
-}
-
-@media (max-width: 1000px) {
-  .menu {
-    display: none;}
-
-  
 }
 
 .menu-item a {
